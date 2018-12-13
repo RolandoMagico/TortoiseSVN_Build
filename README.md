@@ -12,7 +12,7 @@ The following tools must be installed manually according to TortoiseSVN's build.
 - Python 2.6 x86 including libxml2 python bindings
 - Perl
 - Wix 3.10
-- Windows SDK 8.1
+- Windows SDK 8.1 (I had to install it together with the Windows Universal CRT SDK in the Visual Studio 2017 Installer according to https://stackoverflow.com/a/52118479). Additionally "Visual C++ MFC for x86 and x64" must be installed (according to [this MSDN entry](https://social.msdn.microsoft.com/Forums/en-US/6b69607a-8a84-4e46-b3c8-5cd832bfb9c7/vs-2017-rc-file-error-rc1015-cannot-open-include-file-afxresh?forum=vcgeneral) for details).
 
 The following tools must be installed manually:
 - 7zip
