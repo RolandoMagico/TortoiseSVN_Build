@@ -24,7 +24,7 @@
   <!-- Download Tortoise SVN sources -->
   <if test="${not directory::exists(TortoiseSvnVersion)}">
     <exec program="svn.exe">
-      <arg value="export"/>
+      <arg value="checkout"/>
       <arg value="http://svn.osdn.net/svnroot/tortoisesvn/tags/${TortoiseSvnVersion}"/>
       <arg value="${TortoiseSvnVersion}"/>
     </exec>
@@ -63,5 +63,5 @@
 
   <copy file="${TortoiseSvnVersion}/default.build.user.tmpl" tofile="${TortoiseSvnVersion}/default.build.user"/>
   <nant buildfile="${TortoiseSvnVersion}/default.build" target="init"/>
-  <nant buildfile="${TortoiseSvnVersion}/default.build" target="Subversion"/>
+  <nant buildfile="${TortoiseSvnVersion}/default.build" target="binaries"/>
 </project>
