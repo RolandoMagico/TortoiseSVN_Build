@@ -12,6 +12,7 @@ The following tools must be installed manually according to TortoiseSVN's build.
 - Python 2.6 x86 including libxml2 python bindings
 - Perl
 - Wix 3.10
+- Windows SDK 8.1
 
 The following tools must be installed manually:
 - 7zip
