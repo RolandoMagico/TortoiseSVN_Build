@@ -1,23 +1,29 @@
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Configuration
-SET TORTOISE_SVN_DIRECTORY=version-1.11.0
-SET PATH=%PATH%;%~dp0\nant-0.92\bin;C:\Python26
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: NAnt version
+SET NANT_VERSION=0.92
+:: Path to NAnt
+SET PATH=%PATH%;%~dp0\nant-0.92\bin
+:: Path to python 2.6 (x86)
+SET PATH=%PATH%;C:\Python26
+:: Path to wget
+SET PATH=%PATH%;%~dp0\wget-1.11.4-1\bin
+:: Path to 7-zip
+SET SEVEN_ZIP="C:\Program Files\7-Zip\7z.exe"
 
-IF "%TORTOISE_SVN_DIRECTORY%"=="version-1.11.0" (
-SET APR_URL=http://mirror.softaculous.com/apache//apr/apr-1.6.5-win32-src.zip
-SET APR_UTILS_URL=http://mirror.softaculous.com/apache//apr/apr-util-1.6.1-win32-src.zip
-SET SUBVERSION_URL=http://ftp.fau.de/apache/subversion/subversion-1.11.0.zip
-SET SERF_URL=https://www.apache.org/dist/serf/serf-1.3.9.zip
-)
-
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Preparation
-IF NOT EXIST %TORTOISE_SVN_DIRECTORY%\ (
-svn export http://svn.osdn.net/svnroot/tortoisesvn/tags/%TORTOISE_SVN_DIRECTORY%/ %TORTOISE_SVN_DIRECTORY%
-wget %APR_URL%
-wget %APR_UTILS_URL%
-wget %SUBVERSION_URL%
-wget %SERF_URL%
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+IF NOT EXIST nant-%NANT_VERSION%\ (
+wget http://netcologne.dl.sourceforge.net/project/nant/nant/%NANT_VERSION%/nant-%NANT_VERSION%-bin.zip
+%SEVEN_ZIP% x nant-%NANT_VERSION%-bin.zip
 )
 
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Execution
-call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
-NAnt.exe -buildfile:%~dp0\build.xml -D:TortoiseSvnDirectory=%TORTOISE_SVN_DIRECTORY%
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" 8.1
+NAnt.exe -buildfile:%~dp0\build.xml
+
+pause

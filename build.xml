@@ -1,5 +1,67 @@
 <project>
-  <copy file="${TortoiseSvnDirectory}/default.build.user.tmpl" tofile="${TortoiseSvnDirectory}/default.build.user"/>
-  <nant buildfile="${TortoiseSvnDirectory}/default.build" target="init"/>
-  <nant buildfile="${TortoiseSvnDirectory}/default.build" target="Subversion"/>
+  <!--
+  Configuration
+  -->
+  <!-- Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/) -->
+  <property name="TortoiseSvnVersion" value="version-1.11.0"/>
+
+  <if test="${TortoiseSvnVersion == 'version-1.11.0'}">
+    <!-- URLs for downloading additional packages -->
+    <property name="APR_URL" value="http://mirror.softaculous.com/apache//apr/apr-1.6.5-win32-src.zip"/>
+    <property name="APR_UTIL_URL" value="http://mirror.softaculous.com/apache//apr/apr-util-1.6.1-win32-src.zip"/>
+    <property name="SUBVERSION_URL" value="http://ftp.fau.de/apache/subversion/subversion-1.11.0.zip"/>
+    <property name="SERF_URL" value="http://www.apache.org/dist/serf/serf-1.3.9.zip"/>
+    <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
+
+    <!-- Directories to which te additional packages will be unzipped -->
+    <property name="APR_UNZIP_DIR" value="apr-1.6.5"/>
+    <property name="APR_UTIL_UNZIP_DIR" value="apr-util-1.6.1"/>
+    <property name="SERF_UNZIP_DIR" value="serf-1.3.9"/>
+    <property name="SUBVERSION_UNZIP_DIR" value="subversion-1.11.0"/>
+    <property name="TOOLS_UNZIP_DIR" value="Tools"/>
+  </if>
+
+  <!-- Download Tortoise SVN sources -->
+  <if test="${not directory::exists(TortoiseSvnVersion)}">
+    <exec program="svn.exe">
+      <arg value="export"/>
+      <arg value="http://svn.osdn.net/svnroot/tortoisesvn/tags/${TortoiseSvnVersion}"/>
+      <arg value="${TortoiseSvnVersion}"/>
+    </exec>
+  </if>
+  
+  <property name="APR_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/apr')}"/>
+  <property name="APR_UTIL_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/apr-util')}"/>
+  <property name="SUBVERSION_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/subversion')}"/>
+  <property name="SERF_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/serf')}"/>
+  <property name="TOOLS_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'Tools')}"/>
+  
+  <!-- Files which indicate the presence of an additional package -->
+  <property name="APR_PRESENCE_FILE" value="${path::combine(APR_TARGET_PATH, 'LICENSE')}"/>
+  <property name="APR_UTIL_PRESENCE_FILE" value="${path::combine(APR_UTIL_TARGET_PATH, 'LICENSE')}"/>
+  <property name="SERF_PRESENCE_FILE" value="${path::combine(SERF_TARGET_PATH, 'LICENSE')}"/>
+  <property name="SUBVERSION_PRESENCE_FILE" value="${path::combine(SUBVERSION_TARGET_PATH, 'LICENSE')}"/>
+  <property name="TOOLS_PRESENCE_FILE" value="${path::combine(TortoiseSvnVersion, 'Tools/ver-1.8.0')}"/>
+
+  <foreach item="String" in="APR APR_UTIL SUBVERSION SERF TOOLS" delim=" " property="PackageName">
+    <property name="PackageTargetPath" value="${property::get-value(PackageName + '_TARGET_PATH')}"/>
+    <if test="${not file::exists(property::get-value(PackageName + '_PRESENCE_FILE'))}">
+      <property name="PackageUrl" value="${property::get-value(PackageName + '_URL')}"/>
+      <get src="${PackageUrl}" dest="${path::get-file-name(PackageUrl)}"/>
+      <unzip zipfile="${path::get-file-name(PackageUrl)}"/>    
+      <mkdir dir="${PackageTargetPath}" if="${not directory::exists(PackageTargetPath)}"/>
+      <move todir="${PackageTargetPath}">
+        <fileset basedir="${property::get-value(PackageName + '_UNZIP_DIR')}">
+          <include name="**/*"/>
+        </fileset>
+      </move>
+    </if>
+  </foreach>
+
+  <!-- Create file for tools, it will be checked by the Tortoise SVN build script -->
+  <touch file="${TOOLS_PRESENCE_FILE}" if="${not file::exists(TOOLS_PRESENCE_FILE)}"/>
+
+  <copy file="${TortoiseSvnVersion}/default.build.user.tmpl" tofile="${TortoiseSvnVersion}/default.build.user"/>
+  <nant buildfile="${TortoiseSvnVersion}/default.build" target="init"/>
+  <nant buildfile="${TortoiseSvnVersion}/default.build" target="Subversion"/>
 </project>
