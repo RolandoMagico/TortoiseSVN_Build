@@ -1,0 +1,5 @@
+<project>
+  <copy file="${TortoiseSvnDirectory}/default.build.user.tmpl" tofile="${TortoiseSvnDirectory}/default.build.user"/>
+  <nant buildfile="${TortoiseSvnDirectory}/default.build" target="init"/>
+  <nant buildfile="${TortoiseSvnDirectory}/default.build" target="Subversion"/>
+</project>
