@@ -4,6 +4,7 @@
   -->
   <!-- Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/) -->
   <property name="TortoiseSvnVersion" value="version-1.11.0"/>
+  <property name="JdkDirectory" value="C:\Program Files\Java\jdk-11.0.1\bin"/>
 
   <if test="${TortoiseSvnVersion == 'version-1.11.0'}">
     <!-- URLs for downloading additional packages -->
@@ -61,7 +62,24 @@
   <!-- Create file for tools, it will be checked by the Tortoise SVN build script -->
   <touch file="${TOOLS_PRESENCE_FILE}" if="${not file::exists(TOOLS_PRESENCE_FILE)}"/>
 
+  <!-- Included build targets -->
   <copy file="${TortoiseSvnVersion}/default.build.user.tmpl" tofile="${TortoiseSvnVersion}/default.build.user"/>
   <nant buildfile="${TortoiseSvnVersion}/default.build" target="init"/>
   <nant buildfile="${TortoiseSvnVersion}/default.build" target="binaries"/>
+  
+  <!-- Build JavaHL DLLs -->
+  <foreach item="File" property="JavaHL_File">
+    <in>
+    <items basedir="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl">
+      <include name="**/*.java"/>
+    </items>
+    </in>
+    <do>
+    <exec program="${JdkDirectory}/javac.exe">
+      <arg value="${JavaHL_File}"/>
+      <arg line="--source-path ${TortoiseSvnVersion}\ext\Subversion\subversion\bindings\javahl\src"/>
+      <arg line="-h ${TortoiseSvnVersion}\ext\Subversion\subversion\bindings\javahl\include"/>
+    </exec>
+    </do>
+  </foreach>
 </project>

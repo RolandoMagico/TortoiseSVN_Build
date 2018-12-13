@@ -1,2 +1,5 @@
 /version-*
 /nant-0.92
+/VS2017/.vs
+/VS2017/libsvnjavahl.vcxproj.user
+/VS2017/x64/Debug
