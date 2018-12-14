@@ -56,7 +56,7 @@
   <PropertyGroup Condition="'$(TortoiseSvnSourrceBase)'==''">
     <TortoiseSvnSourrceBase>./../version-1.11.0</TortoiseSvnSourrceBase>
   </PropertyGroup>
-    <PropertyGroup Condition="'$(JavaDevelopmentKitBase)'==''">
+  <PropertyGroup Condition="'$(JavaDevelopmentKitBase)'==''">
     <JavaDevelopmentKitBase>C:\Program Files\Java\jdk-11.0.1</JavaDevelopmentKitBase>
   </PropertyGroup>
   <!-- End Inserted manually -->
@@ -107,7 +107,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(TortoiseSvnSourrceBase)/ext/subversion/release_win32;$(TortoiseSvnSourrceBase)/ext/apr/release_win32;$(TortoiseSvnSourrceBase)/ext/apr-util/release_win32;$(TortoiseSvnSourrceBase)/ext/sqlite/release_win32;$(TortoiseSvnSourrceBase)/ext/serf/release_win32;$(TortoiseSvnSourrceBase)/ext/openssl/out32;$(TortoiseSvnSourrceBase)/ext/zlib/release_win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;ws2_32.lib;rpcrt4.lib;crypt32.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,6 +122,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(TortoiseSvnSourrceBase)/ext/subversion/release_x64;$(TortoiseSvnSourrceBase)/ext/apr/release_x64;$(TortoiseSvnSourrceBase)/ext/apr-util/release_x64;$(TortoiseSvnSourrceBase)/ext/sqlite/release_x64;$(TortoiseSvnSourrceBase)/ext/serf/release_x64;$(TortoiseSvnSourrceBase)/ext/openssl/out64;$(TortoiseSvnSourrceBase)/ext/zlib/release_x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -141,7 +143,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(TortoiseSvnSourrceBase)/ext/subversion/release_win32;$(TortoiseSvnSourrceBase)/ext/apr/release_win32;$(TortoiseSvnSourrceBase)/ext/apr-util/release_win32;$(TortoiseSvnSourrceBase)/ext/sqlite/release_win32;$(TortoiseSvnSourrceBase)/ext/serf/release_win32;$(TortoiseSvnSourrceBase)/ext/openssl/out32;$(TortoiseSvnSourrceBase)/ext/zlib/release_win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;ws2_32.lib;rpcrt4.lib;crypt32.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -160,6 +162,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(TortoiseSvnSourrceBase)/ext/subversion/release_x64;$(TortoiseSvnSourrceBase)/ext/apr/release_x64;$(TortoiseSvnSourrceBase)/ext/apr-util/release_x64;$(TortoiseSvnSourrceBase)/ext/sqlite/release_x64;$(TortoiseSvnSourrceBase)/ext/serf/release_x64;$(TortoiseSvnSourrceBase)/ext/openssl/out64;$(TortoiseSvnSourrceBase)/ext/zlib/release_x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

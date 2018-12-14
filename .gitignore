@@ -7,3 +7,7 @@
 /VS2017/Release/*.obj
 /VS2017/Release/libsvnjavahl.tlog
 /*.zip
+/VS2017/x64/Release/*.obj
+/VS2017/x64/Release/libsvnjavahl.tlog
+/*.log
+/VS2017/Release/*.log
