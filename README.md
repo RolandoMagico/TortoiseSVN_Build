@@ -6,7 +6,9 @@ The following Tortoise SVN versions are supported:
 - 1.11.0
 
 ## Usage
-Check the path settings for Python, and 7-zip in build.bat before running the build.
+Check the following settings before running the build:
+- Paths in the Configuration section of build.bat
+- Settings in the configuration target of build.xml
 
 The following tools must be installed manually according to TortoiseSVN's build.txt:
 - Java runtime
