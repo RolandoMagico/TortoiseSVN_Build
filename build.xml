@@ -4,7 +4,7 @@
   -->
   <!-- Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/) -->
   <property name="TortoiseSvnVersion" value="version-1.11.0"/>
-  <property name="JdkDirectory" value="C:\Program Files\Java\jdk-11.0.1\bin"/>
+  <property name="JdkDirectory" value="C:\Program Files\Java\jdk-11.0.1"/>
 
   <if test="${TortoiseSvnVersion == 'version-1.11.0'}">
     <!-- URLs for downloading additional packages -->
@@ -75,11 +75,21 @@
     </items>
     </in>
     <do>
-    <exec program="${JdkDirectory}/javac.exe">
+    <exec program="${JdkDirectory}/bin/javac.exe">
       <arg value="${JavaHL_File}"/>
       <arg line="--source-path ${TortoiseSvnVersion}\ext\Subversion\subversion\bindings\javahl\src"/>
       <arg line="-h ${TortoiseSvnVersion}\ext\Subversion\subversion\bindings\javahl\include"/>
     </exec>
     </do>
   </foreach>
+  
+  <exec program="msbuild.exe">
+    <environment>
+      <variable name="TortoiseSvnSourrceBase" value="./../${TortoiseSvnVersion}"/>
+      <variable name="JavaDevelopmentKitBase" value="${JdkDirectory}"/>
+    </environment>
+    <arg value="VS2017/libsvnjavahl.sln"/>
+    <arg value="/p:Configuration=Release"/>
+    <arg value="/t:Rebuild"/>
+  </exec>
 </project>
