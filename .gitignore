@@ -5,3 +5,4 @@
 /VS2017/x64/Debug
 /VS2017/Debug
 /VS2017/Release/*.obj
+/VS2017/Release/libsvnjavahl.tlog
