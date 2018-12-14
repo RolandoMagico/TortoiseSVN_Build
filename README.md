@@ -32,11 +32,5 @@ I don't know the reason for this problem. Workarounds: Perform a SVN Cleanup and
 The following packages will be retrieved during execution of the script:
 - NAnt 0.9.2
 
-The following dependencies are retrieved during exectuion:
-- APR
-- APR utils
-- Subversion
-- SERF
-
 This project includes the following tools:
 - wget from http://gnuwin32.sourceforge.net/packages/wget.htm
