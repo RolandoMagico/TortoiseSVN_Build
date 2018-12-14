@@ -3,3 +3,5 @@
 /VS2017/.vs
 /VS2017/libsvnjavahl.vcxproj.user
 /VS2017/x64/Debug
+/VS2017/Debug
+/VS2017/Release/*.obj
