@@ -6,7 +6,7 @@
     <property name="TortoiseSvnVersion" value="version-1.11.0"/>
     <property name="JdkDirectory" value="C:\Program Files\Java\jdk-11.0.1"/>
 
-    <if test="${TortoiseSvnVersion == 'version-1.9.7' or TortoiseSvnVersion == 'version-1.10.2' or TortoiseSvnVersion == 'version-1.11.0'}">
+    <if test="${TortoiseSvnVersion == 'version-1.9.7' or TortoiseSvnVersion == 'version-1.10.1' or TortoiseSvnVersion == 'version-1.10.2' or TortoiseSvnVersion == 'version-1.11.0'}">
       <!-- URLs for downloading additional packages -->
       <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
     
@@ -37,7 +37,7 @@
   </target>
   
   <target name="Patches">
-    <if test="${TortoiseSvnVersion == 'version-1.10.2'}">
+    <if test="${TortoiseSvnVersion == 'version-1.10.1' or TortoiseSvnVersion == 'version-1.10.2'}">
       <exec program="svn.exe">
         <arg value="patch"/>
         <arg value="Patches/version-1.10.2_CommitItemStateFlags.java.patch"/>
