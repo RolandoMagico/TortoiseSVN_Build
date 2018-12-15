@@ -20,6 +20,7 @@ The following tools must be installed manually according to TortoiseSVN's build.
 The following tools must be installed manually:
 - 7zip
 - SVN command line client
+- Java development kit
 
 ## Known problems
 During checking out the Tortoise SVN tag, the subversion command line client sometimes reports an error:
