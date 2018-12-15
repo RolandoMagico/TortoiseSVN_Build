@@ -6,20 +6,12 @@
     <property name="TortoiseSvnVersion" value="version-1.11.0"/>
     <property name="JdkDirectory" value="C:\Program Files\Java\jdk-11.0.1"/>
 
-    <if test="${TortoiseSvnVersion == 'version-1.11.0'}">
+    <if test="${TortoiseSvnVersion == 'version-1.9.7' or TortoiseSvnVersion == 'version-1.10.2' or TortoiseSvnVersion == 'version-1.11.0'}">
       <!-- URLs for downloading additional packages -->
-      <property name="APR_URL" value="http://mirror.softaculous.com/apache//apr/apr-1.6.5-win32-src.zip"/>
-      <property name="APR_UTIL_URL" value="http://mirror.softaculous.com/apache//apr/apr-util-1.6.1-win32-src.zip"/>
-      <property name="SUBVERSION_URL" value="http://ftp.fau.de/apache/subversion/subversion-1.11.0.zip"/>
-      <property name="SERF_URL" value="http://www.apache.org/dist/serf/serf-1.3.9.zip"/>
       <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
-
-      <!-- Directories to which te additional packages will be unzipped -->
-      <property name="APR_UNZIP_DIR" value="apr-1.6.5"/>
-      <property name="APR_UTIL_UNZIP_DIR" value="apr-util-1.6.1"/>
-      <property name="SERF_UNZIP_DIR" value="serf-1.3.9"/>
-      <property name="SUBVERSION_UNZIP_DIR" value="subversion-1.11.0"/>
-      <property name="TOOLS_UNZIP_DIR" value="Tools"/>
+    
+      <!-- Files which indicate the presence of an additional package -->
+      <property name="TOOLS_PRESENCE_FILE" value="${path::combine(TortoiseSvnVersion, 'Tools/ver-1.8.0')}"/>
     </if>
   </target>
 
@@ -32,57 +24,36 @@
         <arg value="${TortoiseSvnVersion}"/>
       </exec>
     </if>
-    
-    <property name="APR_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/apr')}"/>
-    <property name="APR_UTIL_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/apr-util')}"/>
-    <property name="SUBVERSION_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/subversion')}"/>
-    <property name="SERF_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'ext/serf')}"/>
-    <property name="TOOLS_TARGET_PATH" value="${path::combine(TortoiseSvnVersion, 'Tools')}"/>
-    
-    <!-- Files which indicate the presence of an additional package -->
-    <property name="APR_PRESENCE_FILE" value="${path::combine(APR_TARGET_PATH, 'LICENSE')}"/>
-    <property name="APR_UTIL_PRESENCE_FILE" value="${path::combine(APR_UTIL_TARGET_PATH, 'LICENSE')}"/>
-    <property name="SERF_PRESENCE_FILE" value="${path::combine(SERF_TARGET_PATH, 'LICENSE')}"/>
-    <property name="SUBVERSION_PRESENCE_FILE" value="${path::combine(SUBVERSION_TARGET_PATH, 'LICENSE')}"/>
-    <property name="TOOLS_PRESENCE_FILE" value="${path::combine(TortoiseSvnVersion, 'Tools/ver-1.8.0')}"/>
 
-    <foreach item="String" in="APR APR_UTIL SUBVERSION SERF TOOLS" delim=" " property="PackageName">
-      <property name="PackageTargetPath" value="${property::get-value(PackageName + '_TARGET_PATH')}"/>
-      <if test="${not file::exists(property::get-value(PackageName + '_PRESENCE_FILE'))}">
-        <property name="PackageUrl" value="${property::get-value(PackageName + '_URL')}"/>
-        <get src="${PackageUrl}" dest="${path::get-file-name(PackageUrl)}"/>
-        <unzip zipfile="${path::get-file-name(PackageUrl)}"/>    
-        <mkdir dir="${PackageTargetPath}" if="${not directory::exists(PackageTargetPath)}"/>
-        <move todir="${PackageTargetPath}">
-          <fileset basedir="${property::get-value(PackageName + '_UNZIP_DIR')}">
-            <include name="**/*"/>
-          </fileset>
-        </move>
-      </if>
-    </foreach>
-
-    <!-- Create file for tools, it will be checked by the Tortoise SVN build script -->
+    <if test="${not file::exists(TOOLS_PRESENCE_FILE)}">
+      <get src="${TOOLS_URL}" dest="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}"/>
+      <unzip zipfile="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}" todir="${TortoiseSvnVersion}"/>    
+      <!-- Create file for tools, it will be checked by the Tortoise SVN build script -->
     <touch file="${TOOLS_PRESENCE_FILE}" if="${not file::exists(TOOLS_PRESENCE_FILE)}"/>
+    </if>
 
     <copy file="${TortoiseSvnVersion}/default.build.user.tmpl" tofile="${TortoiseSvnVersion}/default.build.user"/>
     <nant buildfile="${TortoiseSvnVersion}/default.build" target="init"/>
   </target>
   
   <target name="JNI_Headers" description="Build JNI headers for JavaHL DLLs">
+    <property name="JavaHL_Directory" value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl"/>
+    <property name="JavaHL_SourceFileList" value="${JavaHL_Directory}/sources.txt"/>
+    <delete file="${JavaHL_SourceFileList}" if="${file::exists(JavaHL_SourceFileList)}"/>
     <foreach item="File" property="JavaHL_File">
       <in>
-      <items basedir="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl">
-        <include name="**/*.java"/>
+      <items basedir="${JavaHL_Directory}">
+        <include name="src/**/*.java"/>
       </items>
       </in>
       <do>
-      <exec program="${JdkDirectory}/bin/javac.exe">
-        <arg value="${JavaHL_File}"/>
-        <arg line="--source-path ${TortoiseSvnVersion}\ext\Subversion\subversion\bindings\javahl\src"/>
-        <arg line="-h ${TortoiseSvnVersion}\ext\Subversion\subversion\bindings\javahl\include"/>
-      </exec>
+        <echo message="${JavaHL_File}${environment::newline()}" file="${JavaHL_SourceFileList}" append="true"/>
       </do>
     </foreach>
+    <exec program="${JdkDirectory}/bin/javac.exe" workingdir="${JavaHL_Directory}">
+        <arg value="@${path::get-file-name(JavaHL_SourceFileList)}"/>
+        <arg line="-h include"/>
+      </exec>
   </target>
 
   <target name="Build" description="Build Tortoise SVN, Subversion and its JavaHl library" depends="JNI_Headers, prepare">
@@ -94,7 +65,7 @@
         <variable name="TortoiseSvnSourrceBase" value="./../${TortoiseSvnVersion}"/>
         <variable name="JavaDevelopmentKitBase" value="${JdkDirectory}"/>
       </environment>
-      <arg value="VS2017/libsvnjavahl.sln"/>
+      <arg value="VS2017/svnjavahl.sln"/>
       <arg value="/p:Configuration=Release"/>
       <arg value="/p:Platform=${arch}"/>
       <arg value="/t:Rebuild"/>

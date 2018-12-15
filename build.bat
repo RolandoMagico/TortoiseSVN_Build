@@ -24,9 +24,10 @@ wget http://netcologne.dl.sourceforge.net/project/nant/nant/%NANT_VERSION%/nant-
 :: Execution
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" 8.1
-NAnt.exe -buildfile:%~dp0\build.xml -logfile:build32.log -D:arch=x86
+NAnt.exe -buildfile:%~dp0\build.xml -logfile:build32.log -D:arch=x86 || GOTO END
 
 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat" 8.1
-NAnt.exe -buildfile:%~dp0\build.xml -logfile:build64.log -D:arch=x64
+NAnt.exe -buildfile:%~dp0\build.xml -logfile:build64.log -D:arch=x64 || GOTO END
 
+:END
 pause
