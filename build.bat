@@ -2,7 +2,7 @@
 :: Configuration
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/)
-SET TortoiseSvnVersion=version-1.10.1
+SET TortoiseSvnVersion=version-1.10.2
 
 :: NAnt version
 SET NANT_VERSION=0.92
@@ -19,6 +19,7 @@ SET SEVEN_ZIP="C:\Program Files\7-Zip\7z.exe"
 :: Preparation
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 IF NOT EXIST %TortoiseSvnVersion%\nant-%NANT_VERSION%\ (
+md %TortoiseSvnVersion%
 wget http://netcologne.dl.sourceforge.net/project/nant/nant/%NANT_VERSION%/nant-%NANT_VERSION%-bin.zip --output-document=%TortoiseSvnVersion%\nant-%NANT_VERSION%-bin.zip
 %SEVEN_ZIP% x %TortoiseSvnVersion%\nant-%NANT_VERSION%-bin.zip -o%TortoiseSvnVersion%
 )

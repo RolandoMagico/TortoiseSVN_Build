@@ -15,7 +15,7 @@
 
   <target name="prepare" depends="configuration">
     <!-- Download Tortoise SVN sources -->
-    <if test="${not directory::exists(TortoiseSvnVersion)}">
+    <if test="${not directory::exists(path::combine(TortoiseSvnVersion, 'src'))}">
       <exec program="svn.exe">
         <arg value="checkout"/>
         <arg value="http://svn.osdn.net/svnroot/tortoisesvn/tags/${TortoiseSvnVersion}"/>
