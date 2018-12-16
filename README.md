@@ -3,7 +3,7 @@ Scripts for automated build of Tortoise SVN including Subversion and its JavaHL 
 
 ## Overview
 The following Tortoise SVN versions are supported:
-- 1.10.2 (some patches are included to be able to build the JavaHL libraries)
+- 1.10.1/1.10.2 (some patches are included to be able to build the JavaHL libraries)
 - 1.11.0
 
 ## Usage
