@@ -1,9 +1,7 @@
 <project default="all">
   <target name="all" depends="configuration, prepare, Build"/>
-  
+
   <target name="configuration">
-    <!-- Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/) -->
-    <property name="TortoiseSvnVersion" value="version-1.10.1"/>
     <property name="JdkDirectory" value="C:\Program Files\Java\jdk-11.0.1"/>
 
     <if test="${string::contains('version-1.9.7;version-1.10.1;version-1.10.2;version-1.11.0', TortoiseSvnVersion)}">
@@ -27,7 +25,7 @@
 
     <if test="${not file::exists(TOOLS_PRESENCE_FILE)}">
       <get src="${TOOLS_URL}" dest="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}"/>
-      <unzip zipfile="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}" todir="${TortoiseSvnVersion}"/>    
+      <unzip zipfile="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}" todir="${TortoiseSvnVersion}"/>
       <!-- Create file for tools, it will be checked by the Tortoise SVN build script -->
     <touch file="${TOOLS_PRESENCE_FILE}" if="${not file::exists(TOOLS_PRESENCE_FILE)}"/>
     </if>
@@ -35,7 +33,7 @@
     <copy file="${TortoiseSvnVersion}/default.build.user.tmpl" tofile="${TortoiseSvnVersion}/default.build.user"/>
     <nant buildfile="${TortoiseSvnVersion}/default.build" target="init"/>
   </target>
-  
+
   <target name="Patches">
     <if test="${TortoiseSvnVersion == 'version-1.10.1' or TortoiseSvnVersion == 'version-1.10.2'}">
       <exec program="svn.exe">
@@ -55,7 +53,7 @@
       </exec>
     </if>
   </target>
-  
+
   <target name="JNI_Headers" depends="Patches" description="Build JNI headers for JavaHL DLLs">
     <property name="JavaHL_Directory" value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl"/>
     <property name="JavaHL_SourceFileList" value="${JavaHL_Directory}/sources.txt"/>
@@ -80,11 +78,11 @@
     <!-- Build of Tortoise SVN and Subversion -->
     <property name="AdditionalTarget" value="" if="${arch == 'x86'}"/>
     <property name="AdditionalTarget" value="${arch}" if="${arch != 'x86'}"/>
-    <nant buildfile="${TortoiseSvnVersion}/default.build" target="cleanall ${AdditionalTarget} binaries"/>  
-    
+    <nant buildfile="${TortoiseSvnVersion}/default.build" target="cleanall ${AdditionalTarget} binaries"/>
+
     <!-- Build of JavaHL library -->
     <property name="svnjavahl_directory" value="${TortoiseSvnVersion}/svnjavahl"/>
-    <delete directory="${svnjavahl_directory}" if="${directory::exists(svnjavahl)}"/>
+    <delete dir="${svnjavahl_directory}" if="${directory::exists(svnjavahl_directory)}"/>
     <mkdir dir="${svnjavahl_directory}"/>
     <copy todir="${svnjavahl_directory}">
       <fileset basedir="svnjavahl">
