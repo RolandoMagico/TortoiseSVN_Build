@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{AFD74692-3228-4554-A4ED-D910F1138843}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>svnjavahl</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(JavaDevelopmentKitBase)'==''">
+    <JavaDevelopmentKitBase>C:\Program Files\Java\jdk-11.0.1</JavaDevelopmentKitBase>
+  </PropertyGroup>
+  <!-- End Inserted manually -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;JAVAHL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>./../ext/subversion/release_win32;./../ext/apr/release_win32;./../ext/apr-util/release_win32;./../ext/sqlite/release_win32;./../ext/serf/release_win32;./../ext/openssl/out32;./../ext/zlib/release_win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;JAVAHL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>./../ext/subversion/release_x64;./../ext/apr/release_x64;./../ext/apr-util/release_x64;./../ext/sqlite/release_x64;./../ext/serf/release_x64;./../ext/openssl/out64;./../ext/zlib/release_x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;JAVAHL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>./../ext/subversion/release_win32;./../ext/apr/release_win32;./../ext/apr-util/release_win32;./../ext/sqlite/release_win32;./../ext/serf/release_win32;./../ext/openssl/out32;./../ext/zlib/release_win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;JAVAHL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;sqlite.lib;rpcrt4.lib;Version.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./../ext/subversion/release_x64;./../ext/apr/release_x64;./../ext/apr-util/release_x64;./../ext/sqlite/release_x64;./../ext/serf/release_x64;./../ext/openssl/out64;./../ext/zlib/release_x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Array.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/AuthnCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/BlameCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ChangelistCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ClientContext.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CommitCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CommitEditor.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CommitMessage.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CopySources.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CreateJ.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Credential.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/deprecated.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/DiffOptions.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/DiffSummaryReceiver.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/EditorCallbacks.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/EditorProxy.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/EnumMapper.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ExternalItem.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/File.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ImportFilterCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/InfoCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/InputStream.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Iterator.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIByteArray.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNICriticalSection.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIMutex.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIStackElement.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIStringHolder.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIUtil.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_base.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_channel.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_class_cache.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_io_stream.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_iterator.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_list.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_string_map.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ListCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/LockTokenTable.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/LogMessageCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/MessageReceiver.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/NativeStream.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/OperationContext.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_NativeResources.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_CommitEditor.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_RemoteFactory.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_RemoteSession.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_StateReporter.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_SVNClient.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_SVNRepos.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_RevisionRangeList.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_RuntimeVersion.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_Version.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_VersionExtended.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_ConfigImpl_Category.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_ConfigLib.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_DiffLib.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_PropLib.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_SubstLib.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_TunnelChannel.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/OutputStream.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/PatchCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Path.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Pool.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Prompter.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/PropertyTable.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ProplistCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RemoteSession.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RemoteSessionContext.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ReposFreezeAction.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ReposNotifyCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ReposVerifyCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Revision.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RevisionRange.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RevisionRangeList.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/StateReporter.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/StatusCallback.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/StringArray.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SubversionException.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SVNBase.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SVNClient.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SVNRepos.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Targets.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Utility.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/VersionExtended.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
