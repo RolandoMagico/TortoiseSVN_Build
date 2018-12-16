@@ -3,10 +3,10 @@
   
   <target name="configuration">
     <!-- Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/) -->
-    <property name="TortoiseSvnVersion" value="version-1.11.0"/>
+    <property name="TortoiseSvnVersion" value="version-1.10.1"/>
     <property name="JdkDirectory" value="C:\Program Files\Java\jdk-11.0.1"/>
 
-    <if test="${TortoiseSvnVersion == 'version-1.9.7' or TortoiseSvnVersion == 'version-1.10.1' or TortoiseSvnVersion == 'version-1.10.2' or TortoiseSvnVersion == 'version-1.11.0'}">
+    <if test="${string::contains('version-1.9.7;version-1.10.1;version-1.10.2;version-1.11.0', TortoiseSvnVersion)}">
       <!-- URLs for downloading additional packages -->
       <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
     
@@ -77,15 +77,26 @@
   </target>
 
   <target name="Build" description="Build Tortoise SVN, Subversion and its JavaHl library" depends="JNI_Headers, prepare">
+    <!-- Build of Tortoise SVN and Subversion -->
     <property name="AdditionalTarget" value="" if="${arch == 'x86'}"/>
     <property name="AdditionalTarget" value="${arch}" if="${arch != 'x86'}"/>
     <nant buildfile="${TortoiseSvnVersion}/default.build" target="cleanall ${AdditionalTarget} binaries"/>  
+    
+    <!-- Build of JavaHL library -->
+    <property name="svnjavahl_directory" value="${TortoiseSvnVersion}/svnjavahl"/>
+    <delete directory="${svnjavahl_directory}" if="${directory::exists(svnjavahl)}"/>
+    <mkdir dir="${svnjavahl_directory}"/>
+    <copy todir="${svnjavahl_directory}">
+      <fileset basedir="svnjavahl">
+        <include name="*"/>
+        <exclude name="Readme.txt"/>
+    </fileset>
+    </copy>
     <exec program="msbuild.exe">
       <environment>
-        <variable name="TortoiseSvnSourrceBase" value="./../${TortoiseSvnVersion}"/>
         <variable name="JavaDevelopmentKitBase" value="${JdkDirectory}"/>
       </environment>
-      <arg value="VS2017/svnjavahl.sln"/>
+      <arg value="${svnjavahl_directory}/svnjavahl.sln"/>
       <arg value="/p:Configuration=Release"/>
       <arg value="/p:Platform=${arch}"/>
       <arg value="/t:Rebuild"/>

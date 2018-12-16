@@ -1,13 +1,4 @@
 /version-*
 /nant-0.92
-/VS2017/.vs
-/VS2017/svnjavahl.vcxproj.user
-/VS2017/x64/Debug
-/VS2017/Debug
-/VS2017/Release/*.obj
-/VS2017/Release/svnjavahl.tlog
 /*.zip
-/VS2017/x64/Release/*.obj
-/VS2017/x64/Release/svnjavahl.tlog
 /*.log
-/VS2017/Release/*.log
