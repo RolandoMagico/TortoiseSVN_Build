@@ -82,14 +82,15 @@
 
     <!-- Build of JavaHL library -->
     <property name="svnjavahl_directory" value="${TortoiseSvnVersion}/svnjavahl"/>
-    <delete dir="${svnjavahl_directory}" if="${directory::exists(svnjavahl_directory)}"/>
-    <mkdir dir="${svnjavahl_directory}"/>
-    <copy todir="${svnjavahl_directory}">
-      <fileset basedir="svnjavahl">
-        <include name="*"/>
-        <exclude name="Readme.txt"/>
-    </fileset>
-    </copy>
+    <if test="${not directory::exists(svnjavahl_directory)}">
+      <mkdir dir="${svnjavahl_directory}"/>
+      <copy todir="${svnjavahl_directory}">
+        <fileset basedir="svnjavahl">
+          <include name="*"/>
+          <exclude name="Readme.txt"/>
+      </fileset>
+      </copy>
+    </if>
     <exec program="msbuild.exe">
       <environment>
         <variable name="JavaDevelopmentKitBase" value="${JdkDirectory}"/>
