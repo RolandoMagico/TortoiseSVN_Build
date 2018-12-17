@@ -23,6 +23,18 @@
       </exec>
     </if>
 
+    <!-- Create Visual Studio project for building the JavaHL libraries -->
+    <property name="svnjavahl_directory" value="${TortoiseSvnVersion}/svnjavahl"/>
+    <if test="${not directory::exists(svnjavahl_directory)}">
+      <mkdir dir="${svnjavahl_directory}"/>
+      <copy todir="${svnjavahl_directory}">
+        <fileset basedir="svnjavahl">
+          <include name="*"/>
+          <exclude name="Readme.txt"/>
+      </fileset>
+      </copy>
+    </if>
+
     <if test="${not file::exists(TOOLS_PRESENCE_FILE)}">
       <get src="${TOOLS_URL}" dest="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}"/>
       <unzip zipfile="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}" todir="${TortoiseSvnVersion}"/>
@@ -81,16 +93,6 @@
     <nant buildfile="${TortoiseSvnVersion}/default.build" target="cleanall ${AdditionalTarget} binaries"/>
 
     <!-- Build of JavaHL library -->
-    <property name="svnjavahl_directory" value="${TortoiseSvnVersion}/svnjavahl"/>
-    <if test="${not directory::exists(svnjavahl_directory)}">
-      <mkdir dir="${svnjavahl_directory}"/>
-      <copy todir="${svnjavahl_directory}">
-        <fileset basedir="svnjavahl">
-          <include name="*"/>
-          <exclude name="Readme.txt"/>
-      </fileset>
-      </copy>
-    </if>
     <exec program="msbuild.exe">
       <environment>
         <variable name="JavaDevelopmentKitBase" value="${JdkDirectory}"/>
