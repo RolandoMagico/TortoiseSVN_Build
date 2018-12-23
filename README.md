@@ -5,14 +5,13 @@ Scripts for automated build of Tortoise SVN including Subversion and its JavaHL 
 ### General
 Check the following settings before running the build:
 - Paths in the Configuration section of build.bat
-- Settings in the configuration target of build.xml
 
 The following tools must be installed manually according to TortoiseSVN's build.txt:
 - Java runtime
 - Python 2.6 x86 including libxml2 python bindings
 - Perl
 - Wix 3.10
-
+- Visual Studio
 
 The following tools must be installed manually:
 - 7zip
