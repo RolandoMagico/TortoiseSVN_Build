@@ -3,9 +3,10 @@ Scripts for automated build of Tortoise SVN including Subversion and its JavaHL 
 
 ## Usage
 ### General
-Check the following settings before running the build:
-- Paths in the Configuration section of build.bat
-- Settings in the configuration target of build.xml
+- Use the branch matching your Tortoise SVN version.
+- Check the following settings before running the build:
+  - Paths in the Configuration section of build.bat
+  - Settings in the configuration target of build.xml
 
 The following tools must be installed manually according to TortoiseSVN's build.txt:
 - Java runtime
