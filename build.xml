@@ -2,13 +2,11 @@
   <target name="all" depends="configuration, prepare, Build"/>
 
   <target name="configuration">
-    <if test="${string::contains('version-1.9.7;version-1.10.1;version-1.10.2;version-1.11.0', TortoiseSvnVersion)}">
-      <!-- URLs for downloading additional packages -->
-      <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
-    
-      <!-- Files which indicate the presence of an additional package -->
-      <property name="TOOLS_PRESENCE_FILE" value="${path::combine(TortoiseSvnVersion, 'Tools/ver-1.8.0')}"/>
-    </if>
+    <!-- URLs for downloading additional packages -->
+    <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
+  
+    <!-- Files which indicate the presence of an additional package -->
+    <property name="TOOLS_PRESENCE_FILE" value="${path::combine(TortoiseSvnVersion, 'Tools/ver-1.8.0')}"/>
   </target>
 
   <target name="prepare" depends="configuration">
@@ -45,23 +43,21 @@
   </target>
 
   <target name="Patches">
-    <if test="${TortoiseSvnVersion == 'version-1.9.7' or TortoiseSvnVersion == 'version-1.10.1' or TortoiseSvnVersion == 'version-1.10.2'}">
-      <exec program="svn.exe">
-        <arg value="patch"/>
-        <arg value="Patches/version-1.10.2_CommitItemStateFlags.java.patch"/>
-        <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl"/>
-      </exec>
-      <exec program="svn.exe">
-        <arg value="patch"/>
-        <arg value="Patches/version-1.10.2_UserPasswordCallback.java.patch"/>
-        <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl/callback"/>
-      </exec>
-      <exec program="svn.exe">
-        <arg value="patch"/>
-        <arg value="Patches/version-1.10.2_Revision.java.patch"/>
-        <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl/types"/>
-      </exec>
-    </if>
+    <exec program="svn.exe">
+      <arg value="patch"/>
+      <arg value="Patches/version-1.10.2_CommitItemStateFlags.java.patch"/>
+      <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl"/>
+    </exec>
+    <exec program="svn.exe">
+      <arg value="patch"/>
+      <arg value="Patches/version-1.10.2_UserPasswordCallback.java.patch"/>
+      <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl/callback"/>
+    </exec>
+    <exec program="svn.exe">
+      <arg value="patch"/>
+      <arg value="Patches/version-1.10.2_Revision.java.patch"/>
+      <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl/types"/>
+    </exec>
   </target>
 
   <target name="JNI_Headers" depends="Patches" description="Build JNI headers for JavaHL DLLs">
