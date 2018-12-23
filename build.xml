@@ -2,8 +2,6 @@
   <target name="all" depends="configuration, prepare, Build"/>
 
   <target name="configuration">
-    <property name="JdkDirectory" value="C:\Program Files\Java\jdk1.8.0_191"/>
-
     <if test="${string::contains('version-1.9.7;version-1.10.1;version-1.10.2;version-1.11.0', TortoiseSvnVersion)}">
       <!-- URLs for downloading additional packages -->
       <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
