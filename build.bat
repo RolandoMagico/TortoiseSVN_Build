@@ -2,7 +2,7 @@
 :: Configuration
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/)
-SET TortoiseSvnVersion=version-1.10.1
+SET TortoiseSvnVersion=version-1.9.7
 
 :: NAnt version
 SET NANT_VERSION=0.92
@@ -35,10 +35,10 @@ wget http://netcologne.dl.sourceforge.net/project/nant/nant/%NANT_VERSION%/nant-
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Execution
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" 8.1
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\vcvars32.bat" 8.1
 NAnt.exe -buildfile:%~dp0\build.xml -logfile:build32.log -D:arch=x86 -D:TortoiseSvnVersion=%TortoiseSvnVersion% -D:JdkDirectory=%JDK_PATH% || GOTO END
 
-call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat" 8.1
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\vcvars64.bat" 8.1
 NAnt.exe -buildfile:%~dp0\build.xml -logfile:build64.log -D:arch=x64 -D:TortoiseSvnVersion=%TortoiseSvnVersion% -D:JdkDirectory=%JDK_PATH% || GOTO END
 
 :END
