@@ -2,6 +2,7 @@
   <target name="all" depends="configuration, prepare, Build"/>
 
   <target name="configuration">
+    <!-- URLs for downloading additional packages -->
     <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
   
     <!-- Files which indicate the presence of an additional package -->
