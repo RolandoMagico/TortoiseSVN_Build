@@ -2,10 +2,10 @@
   <target name="all" depends="configuration, prepare, Build"/>
 
   <target name="configuration">
-      <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
-    
-      <!-- Files which indicate the presence of an additional package -->
-      <property name="TOOLS_PRESENCE_FILE" value="${path::combine(TortoiseSvnVersion, 'Tools/ver-1.8.0')}"/>
+    <property name="TOOLS_URL" value="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip"/>
+  
+    <!-- Files which indicate the presence of an additional package -->
+    <property name="TOOLS_PRESENCE_FILE" value="${path::combine(TortoiseSvnVersion, 'Tools/ver-1.8.0')}"/>
   </target>
 
   <target name="prepare" depends="configuration">
@@ -42,6 +42,7 @@
   </target>
 
   <target name="Patches">
+    <!-- Nothing to do in this version -->
   </target>
 
   <target name="JNI_Headers" depends="Patches" description="Build JNI headers for JavaHL DLLs">
