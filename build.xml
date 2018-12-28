@@ -15,6 +15,7 @@
         <arg value="checkout"/>
         <arg value="http://svn.osdn.net/svnroot/tortoisesvn/tags/${TortoiseSvnVersion}"/>
         <arg value="${TortoiseSvnVersion}"/>
+        <arg value="--ignore-externals"/>
       </exec>
     </if>
 
@@ -38,23 +39,32 @@
     </if>
 
     <copy file="${TortoiseSvnVersion}/default.build.user.tmpl" tofile="${TortoiseSvnVersion}/default.build.user"/>
-    <nant buildfile="${TortoiseSvnVersion}/default.build" target="init"/>
   </target>
 
   <target name="Patches">
     <exec program="svn.exe">
       <arg value="patch"/>
-      <arg value="Patches/version-1.10.2_CommitItemStateFlags.java.patch"/>
+      <arg value="Patches/ext.patch"/>
+      <arg value="${TortoiseSvnVersion}/ext"/>
+    </exec>
+    <exec program="svn.exe">
+      <arg value="update"/>
+      <arg value="${TortoiseSvnVersion}"/>
+      <arg line="--depth infinity"/>
+    </exec>
+    <exec program="svn.exe">
+      <arg value="patch"/>
+      <arg value="Patches/CommitItemStateFlags.java.patch"/>
       <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl"/>
     </exec>
     <exec program="svn.exe">
       <arg value="patch"/>
-      <arg value="Patches/version-1.10.2_UserPasswordCallback.java.patch"/>
+      <arg value="Patches/UserPasswordCallback.java.patch"/>
       <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl/callback"/>
     </exec>
     <exec program="svn.exe">
       <arg value="patch"/>
-      <arg value="Patches/version-1.10.2_Revision.java.patch"/>
+      <arg value="Patches/Revision.java.patch"/>
       <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl/types"/>
     </exec>
   </target>

@@ -1,6 +1,6 @@
 Index: CommitItemStateFlags.java
 ===================================================================
---- CommitItemStateFlags.java	(revision 1848988)
+--- CommitItemStateFlags.java	(revision 1849831)
 +++ CommitItemStateFlags.java	(working copy)
 @@ -23,6 +23,8 @@
  

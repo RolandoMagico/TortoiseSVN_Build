@@ -1,6 +1,6 @@
 Index: Revision.java
 ===================================================================
---- Revision.java	(revision 1848988)
+--- Revision.java	(revision 1849831)
 +++ Revision.java	(working copy)
 @@ -23,6 +23,7 @@
  
@@ -10,7 +10,7 @@ Index: Revision.java
  import java.text.SimpleDateFormat;
  import java.util.Date;
  import java.util.Locale;
-@@ -179,6 +180,7 @@
+@@ -177,6 +178,7 @@
      /**
       * Marker revision number for no real revision
       */
