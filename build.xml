@@ -67,6 +67,11 @@
       <arg value="Patches/Revision.java.patch"/>
       <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/src/org/apache/subversion/javahl/types"/>
     </exec>
+    <exec program="svn.exe">
+      <arg value="patch"/>
+      <arg value="Patches/ClientContext.cpp.patch"/>
+      <arg value="${TortoiseSvnVersion}/ext/Subversion/subversion/bindings/javahl/native"/>
+    </exec>
   </target>
 
   <target name="JNI_Headers" depends="Patches" description="Build JNI headers for JavaHL DLLs">

@@ -29,31 +29,31 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(JavaDevelopmentKitBase)'==''">
-    <JavaDevelopmentKitBase>C:\Program Files\Java\jdk-11.0.1</JavaDevelopmentKitBase>
+    <JavaDevelopmentKitBase>C:\Program Files\Java\jdk1.8.0_191</JavaDevelopmentKitBase>
   </PropertyGroup>
   <!-- End Inserted manually -->
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -171,89 +171,54 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/libsvnjavahl.la.c" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Array.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/AuthnCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/BlameCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ChangelistCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ClientContext.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CommitCallback.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CommitEditor.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CommitMessage.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CopySources.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/CreateJ.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Credential.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/deprecated.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/DiffOptions.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/DiffSummaryReceiver.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/EditorCallbacks.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/EditorProxy.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/EnumMapper.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ExternalItem.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/File.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ImportFilterCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/InfoCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/InputStream.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Iterator.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIByteArray.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNICriticalSection.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIMutex.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIStackElement.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIStringHolder.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIThreadData.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/JNIUtil.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_base.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_channel.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_class_cache.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_io_stream.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_iterator.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_list.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/jniwrapper\jni_string_map.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ListCallback.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/LockTokenTable.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/LogMessageCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/MessageReceiver.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/NativeStream.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/OperationContext.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_NativeResources.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_CommitEditor.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_RemoteFactory.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_RemoteSession.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_remote_StateReporter.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_SVNClient.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_SVNRepos.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_RevisionRangeList.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_RuntimeVersion.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_Version.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_types_VersionExtended.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_ConfigImpl_Category.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_ConfigLib.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_DiffLib.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_PropLib.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_SubstLib.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/org_apache_subversion_javahl_util_TunnelChannel.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/OutputStream.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/PatchCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Path.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Pool.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Prompter.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/PropertyTable.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ProplistCallback.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RemoteSession.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RemoteSessionContext.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ReposFreezeAction.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ReposNotifyCallback.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/ReposVerifyCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Revision.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RevisionRange.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RevisionRangeList.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/StateReporter.cpp" />
+    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/RevpropTable.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/StatusCallback.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/StringArray.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SubversionException.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SVNBase.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SVNClient.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/SVNRepos.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Targets.cpp" />
-    <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/Utility.cpp" />
     <ClCompile Include="./../ext/subversion/subversion/bindings/javahl/native/VersionExtended.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>

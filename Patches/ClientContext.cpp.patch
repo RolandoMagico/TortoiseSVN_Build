@@ -1,0 +1,13 @@
+Index: ClientContext.cpp
+===================================================================
+--- ClientContext.cpp	(revision 1849832)
++++ ClientContext.cpp	(working copy)
+@@ -188,7 +188,7 @@
+      * caching. */
+     svn_auth_plaintext_prompt_func_t plaintext_prompt_func = NULL;
+     void *plaintext_prompt_baton = NULL;
+-    svn_auth_plaintext_passphrase_prompt_func_t plaintext_passphrase_prompt_func;
++    svn_auth_plaintext_passphrase_prompt_func_t plaintext_passphrase_prompt_func = NULL;
+     void *plaintext_passphrase_prompt_baton = NULL;
+ 
+     if (m_prompter != NULL)
