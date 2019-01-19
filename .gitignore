@@ -2,3 +2,5 @@
 /nant-0.92
 /*.zip
 /*.log
+/svnjavahl/*.user
+/svnjavahl/.vs/svnjavahl/v15/.suo
