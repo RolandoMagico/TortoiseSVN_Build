@@ -2,7 +2,7 @@
 :: Configuration
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/)
-SET TortoiseSvnVersion=version-1.10.2
+SET TortoiseSvnVersion=version-1.10.3
 
 :: NAnt version
 SET NANT_VERSION=0.92
