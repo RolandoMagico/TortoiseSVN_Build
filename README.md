@@ -20,7 +20,7 @@ The following tools must be installed manually:
 - Java development kit
 
 ### Building Tortoise SVN
-* Visual Studio 2019 (e.g. Community Edition) must be installed
+* Visual Studio 2019 (e.g. Community Edition) including MFC and ATL build tools must be installed
 
 ## Known problems
 During checking out the Tortoise SVN tag, the subversion command line client sometimes reports an error:
