@@ -79,24 +79,28 @@
     <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(JavaDevelopmentKitBase)/include;$(JavaDevelopmentKitBase)/include/win32;./../ext/apr/include;./../ext/apr-util/include;./../ext/subversion/subversion;./../ext/subversion/subversion/include;./../ext/subversion/subversion/bindings/javahl/native;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)64</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
