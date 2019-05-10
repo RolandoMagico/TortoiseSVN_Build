@@ -20,9 +20,7 @@ The following tools must be installed manually:
 - Java development kit
 
 ### Building Tortoise SVN
-* Visual Studio 2017 (e.g. Community Edition) must be installed
-* Windows SDK 8.1 (I had to install it together with the Windows Universal CRT SDK in the Visual Studio 2017 Installer according to https://stackoverflow.com/a/52118479). Additionally "Visual C++ MFC for x86 and x64" must be installed (according to [this MSDN entry](https://social.msdn.microsoft.com/Forums/en-US/6b69607a-8a84-4e46-b3c8-5cd832bfb9c7/vs-2017-rc-file-error-rc1015-cannot-open-include-file-afxresh?forum=vcgeneral) for details).
-* Same preconditions as for version 1.10.x, but no patches are required to build the JavaHL libraries.
+* Visual Studio 2019 (e.g. Community Edition) must be installed
 
 ## Known problems
 During checking out the Tortoise SVN tag, the subversion command line client sometimes reports an error:
