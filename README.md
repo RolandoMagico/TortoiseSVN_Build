@@ -3,7 +3,7 @@ Scripts for automated build of Tortoise SVN including Subversion and its JavaHL 
 
 ## Usage
 ### General
-- Use the branch matching your Tortoise SVN version.
+- Use the branch matching your Tortoise SVN version:
   - [Version 1.8.12](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.8.12)
   - [Version 1.9.7](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.9.7)
   - [Version 1.9.8](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.9.8)
