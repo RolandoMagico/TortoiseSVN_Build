@@ -5,6 +5,16 @@ Scripts for automated build of Tortoise SVN including Subversion and its JavaHL 
 ### General
 - Use the branch matching your Tortoise SVN version.
   - [Version 1.8.12](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.8.12)
+  - [Version 1.9.7](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.9.7)
+  - [Version 1.9.8](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.9.8)
+  - [Version 1.10.1](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.10.1)
+  - [Version 1.10.2](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.10.2)
+  - [Version 1.10.3](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.10.3)
+  - [Version 1.11.0](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.11.0)
+  - [Version 1.11.1](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.11.1)
+  - [Version 1.12.0](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.12.0)
+  - [Version 1.12.1](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.12.1)
+  - [Version 1.12.2](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.12.2)
 
 - Check the following settings before running the build:
   - Paths in the Configuration section of build.bat
@@ -21,25 +31,6 @@ The following tools must be installed manually:
 - 7zip
 - SVN command line client
 - Java development kit
-
-### Building Tortoise SVN 1.9.7
-* Visual Studio 2015 (e.g. Community Edition) must be installed. The Express edition of Visual Studio doesn't work because of missing ATL header files.
-* Some patches are included to be able to build the JavaHL libraries. They will be applied automatically during the build.
-
-### Building Tortoise SVN 1.10.1/1.10.2
-* Visual Studio 2017 (e.g. Community Edition) must be installed
-* Windows SDK 8.1 (I had to install it together with the Windows Universal CRT SDK in the Visual Studio 2017 Installer according to https://stackoverflow.com/a/52118479). Additionally "Visual C++ MFC for x86 and x64" must be installed (according to [this MSDN entry](https://social.msdn.microsoft.com/Forums/en-US/6b69607a-8a84-4e46-b3c8-5cd832bfb9c7/vs-2017-rc-file-error-rc1015-cannot-open-include-file-afxresh?forum=vcgeneral) for details).
-* Some patches are included to be able to build the JavaHL libraries. They will be applied automatically during the build.
-
-### Building Tortoise SVN 1.11.0
-* Same preconditions as for version 1.10.x, but no patches are required to build the JavaHL libraries.
-
-## Known problems
-During checking out the Tortoise SVN tag, the subversion command line client sometimes reports an error:
-```
-E020014 internal error
-```
-I don't know the reason for this problem. Workarounds: Perform a SVN Cleanup and try again.
 
 ## Automatically fetched packages
 The following packages will be retrieved during execution of the script:
