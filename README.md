@@ -4,7 +4,7 @@ Scripts for automated build of Tortoise SVN including Subversion and its JavaHL 
 ## Usage
 ### General
 - Use the branch matching your Tortoise SVN version.
-  - [Version 1.8.12](/tree/version-1.8.12)
+  - [Version 1.8.12](https://github.com/ContextQuickie/TortoiseSVN_Build/tree/version-1.8.12)
 
 - Check the following settings before running the build:
   - Paths in the Configuration section of build.bat
