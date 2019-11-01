@@ -34,4 +34,4 @@ The following packages will be retrieved during execution of the script:
 - NAnt 0.9.2
 
 This project includes the following tools:
-- wget from http://gnuwin32.sourceforge.net/packages/wget.htm
+- wget from https://eternallybored.org/misc/wget/
