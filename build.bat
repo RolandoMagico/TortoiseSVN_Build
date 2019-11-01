@@ -2,7 +2,7 @@
 :: Configuration
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Tortoise SVN version (must equal a tag name from http://svn.osdn.net/svnroot/tortoisesvn/tags/)
-SET TortoiseSvnVersion=version-1.12.2
+SET TortoiseSvnVersion=version-1.13.0
 
 :: NAnt version
 SET NANT_VERSION=0.92
@@ -14,7 +14,7 @@ SET PATH=%PATH%;%~dp0\%TortoiseSvnVersion%\nant-0.92\bin
 SET PATH=%PATH%;C:\Python26
 
 :: Path to wget
-SET PATH=%PATH%;%~dp0\wget-1.11.4-1\bin
+SET PATH=%PATH%;%~dp0\wget-1.20.3-win32
 
 :: Path to 7-zip
 SET SEVEN_ZIP="C:\Program Files\7-Zip\7z.exe"

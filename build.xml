@@ -32,10 +32,13 @@
     </if>
 
     <if test="${not file::exists(TOOLS_PRESENCE_FILE)}">
-      <get src="${TOOLS_URL}" dest="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}"/>
+      <exec program="wget-1.20.3-win32/wget.exe">
+        <arg value="${TOOLS_URL}"/>
+        <arg value="--output-document=${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}"/>
+      </exec>
       <unzip zipfile="${TortoiseSvnVersion}/${path::get-file-name(TOOLS_URL)}" todir="${TortoiseSvnVersion}"/>
       <!-- Create file for tools, it will be checked by the Tortoise SVN build script -->
-    <touch file="${TOOLS_PRESENCE_FILE}" if="${not file::exists(TOOLS_PRESENCE_FILE)}"/>
+      <touch file="${TOOLS_PRESENCE_FILE}" if="${not file::exists(TOOLS_PRESENCE_FILE)}"/>
     </if>
 
     <copy file="${TortoiseSvnVersion}/default.build.user.tmpl" tofile="${TortoiseSvnVersion}/default.build.user"/>
