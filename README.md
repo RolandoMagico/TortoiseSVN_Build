@@ -21,7 +21,7 @@ The following tools must be installed manually:
 To start the build, run build.bat of the package in the Developer Command Prompt of Visual Studio.
 
 ### Building Tortoise SVN
-* Visual Studio 2019 (e.g. Community Edition) including MFC and ATL build tools must be installed
+* Visual Studio 2019 (e.g. Community Edition) including MFC and ATL build tools must be installed. The export of the used Visual Studio Installer configuration is available in the repository (.vsconfig).
 
 ## Known problems
 During checking out the Tortoise SVN tag, the subversion command line client sometimes reports an error:
