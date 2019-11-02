@@ -18,7 +18,17 @@ The following tools must be installed manually:
 - SVN command line client
 - Java development kit
 
-To start the build, run build.bat of the package in the Developer Command Prompt of Visual Studio.
+To start the build, run build.bat of the project in the Developer Command Prompt of Visual Studio with the specific architecture. 
+
+For 32 bit build:
+```
+build.bat x86
+```
+
+For 64 bit build:
+```
+build.bat x64
+```
 
 ### Building Tortoise SVN
 * Visual Studio 2019 (e.g. Community Edition) including MFC and ATL build tools must be installed. The export of the used Visual Studio Installer configuration is available in the repository (.vsconfig).
