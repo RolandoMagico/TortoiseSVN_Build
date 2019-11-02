@@ -25,7 +25,7 @@ For 32 bit build (usin 32 bit command prompt):
 build.bat x86
 ```
 
-For 64 bit build (usin 64 bit command prompt)::
+For 64 bit build (usin 64 bit command prompt):
 ```
 build.bat x64
 ```
