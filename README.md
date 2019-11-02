@@ -20,12 +20,12 @@ The following tools must be installed manually:
 
 To start the build, run build.bat of the project in the Developer Command Prompt of Visual Studio with the specific architecture. 
 
-For 32 bit build:
+For 32 bit build (usin 32 bit command prompt):
 ```
 build.bat x86
 ```
 
-For 64 bit build:
+For 64 bit build (usin 64 bit command prompt)::
 ```
 build.bat x64
 ```
